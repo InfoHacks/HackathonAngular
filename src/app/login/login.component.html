@@ -1,9 +1,33 @@
-<form [formGroup]="loginForm">
 
-  <label for="username">Username: </label>
-  <input id="username" type="text" formControlName="username" class="border-2 border-black">
 
-  <label for="password">Password: </label>
-  <input id="password" type="text" formControlName="password" class="border-2 border-black">
+<main class="form-signin w-100 m-auto">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-</form>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@infotrack.com.au" formControlName="username" minlength="8" required>
+      <label for="floatingInput">Email address</label>
+
+      
+
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password" minlength="8" required>
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <!-- <div *ngIf="this.loginForm.value.username.invalid && (loginForm.value.username.dirty || loginForm.value.username.touched)" 
+          class="alert">   
+          <div *ngIf="loginForm.value.username.errors?.['required']">     username is required.   </div> 
+            <div *ngIf="loginForm.value.username.errors?.['minlength']">     username must be at least 4 characters long.   </div>  
+             <div *ngIf="loginForm.value.username.errors?.['forbiddenName']">     username cannot be Bob.   </div> 
+            </div> -->
+
+    <div class="mb-3">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot Password?</a>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+  </form>
+</main>

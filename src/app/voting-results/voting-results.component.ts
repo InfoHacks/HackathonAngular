@@ -15,8 +15,7 @@ export class VotingResultsComponent implements OnInit {
 
   }
 
-  results = TEAMS
-
+  results = TEAMS.sort((a,b) =>  b.score - a.score )
   totalVotes() {
     let totalVote: number = 0;
     TEAMS.forEach(element => {

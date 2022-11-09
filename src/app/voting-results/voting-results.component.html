@@ -1,14 +1,18 @@
 <h1></h1>
 
-<div class="row" style="margin:15px 5px" *ngFor="let team of results">
-  <div class="col-md-4" style="overflow: hidden;     text-overflow: ellipsis;     white-space: nowrap;">
+<div class="row" style="margin:15px 5px" *ngFor="let team of results;let i = index">
+  <div class="col-sm-12">
+    <span *ngIf="i == 0">🥇</span>
+    <span *ngIf="i == 1">🥈</span>
+    <span *ngIf="i == 2">🥉</span>
+    <span *ngIf="i == 13">🥄</span>
     {{ team.name }}
   </div>
   <div class="col">
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-label="Basic example" 
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Basic example" 
         [ngStyle]="{ 'width': calcPercent(team.score) + '%' }"
-        aria-valuenow="calcPercent(team.score)" aria-valuemin="0" aria-valuemax="100"></div>
+        aria-valuenow="calcPercent(team.score)" aria-valuemin="0" aria-valuemax="100">{{team.score}}</div>
     </div>
   </div>
 </div>

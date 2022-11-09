@@ -8,7 +8,7 @@ import { VotingComponent } from './voting/voting.component';
 const routes: Routes = [
   { path: 'voting', component: VotingComponent},
   { path: 'voting-results', component: VotingResultsComponent},
-  { path: 'login', component: LoginComponent},
+  { path: '', component: LoginComponent},
 ];
 
 @NgModule({

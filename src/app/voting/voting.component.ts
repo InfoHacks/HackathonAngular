@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Team } from './team';
 import { TEAMS } from './team-data';
 @Component({
@@ -8,13 +9,15 @@ import { TEAMS } from './team-data';
 })
 export class VotingComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     
   }
 
   teams = TEAMS;
+
+  counter = 0;
 
   selectTeam(team: Team) {
 
@@ -29,10 +32,12 @@ export class VotingComponent implements OnInit {
     console.log(team.name);
   }
 
-  onMouseOver(voteBtn: HTMLElement) {
+  onMouseOver(voteBtn: HTMLElement, isClick: boolean) {
     const selectedTeam = this.teams.find(x => x.isSelected);
 
-    if(!selectedTeam?.isSpecial) {
+    this.counter++;
+
+    if(!selectedTeam?.isSpecial && this.counter < 3) {
       
       const maxWidth = voteBtn.parentElement?.offsetWidth ?? 0 - parseInt(voteBtn.style.width);
 
@@ -41,9 +46,11 @@ export class VotingComponent implements OnInit {
       voteBtn.style.left = `${randomX}px`
     } else {
       // TODO handle click event on our team
+      if (isClick || this.counter > 3) {
+        this.router.navigateByUrl('voting-results')
+      }
     }
     
   }
-    
   
 }

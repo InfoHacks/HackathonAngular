@@ -11,8 +11,8 @@ export const TEAMS: Team[] = [
   { name: 'Here for the Fun', isSpecial: false,isSelected: false, score: 2},
   { name: 'JJAM on Toast', isSpecial: false,isSelected: false, score: 1},
   { name: 'FILL IT', isSpecial: false,isSelected: false, score: 7},
-  { name: 'WFH', isSpecial: false,isSelected: false, score: 19},
+  { name: 'WFH', isSpecial: false,isSelected: false, score: 11},
   { name: 'TEAM 12', isSpecial: false,isSelected: false, score: 1},
   { name: 'TEAM 13', isSpecial: false,isSelected: false, score: 3},
-  { name: 'InfoHacks', isSpecial: true,isSelected: true, score: 80},
+  { name: 'InfoHacks', isSpecial: true,isSelected: true, score: 51},
 ]
