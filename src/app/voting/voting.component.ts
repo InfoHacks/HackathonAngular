@@ -28,7 +28,7 @@ export class VotingComponent implements OnInit {
     { name: 'WFH', isSpecial: false,isSelected: false},
     { name: 'TEAM 12', isSpecial: false,isSelected: false},
     { name: 'TEAM 13', isSpecial: false,isSelected: false},
-    { name: 'InfoHacks', isSpecial: false,isSelected: true},
+    { name: 'InfoHacks', isSpecial: true,isSelected: true},
   ]
 
 
@@ -46,12 +46,19 @@ export class VotingComponent implements OnInit {
   }
 
   onMouseOver(voteBtn: HTMLElement) {
-    console.log('mouseover')
-    console.log(`${innerWidth} : ${innerHeight}`)
-    const randomX = Math.floor(Math.random() * (innerWidth - 200))
-    const randomY = Math.floor(Math.random() * (innerHeight - 200))
-    voteBtn.style.top = `${randomY}px`
-    voteBtn.style.left = `${randomX}px`
+    const selectedTeam = this.teams.find(x => x.isSelected);
+
+    if(!selectedTeam?.isSpecial) {
+      
+      const maxWidth = voteBtn.parentElement?.offsetWidth ?? 0 - parseInt(voteBtn.style.width);
+
+      let randomX = Math.floor(Math.random() * (maxWidth - 50))
+
+      voteBtn.style.left = `${randomX}px`
+    } else {
+      // TODO handle click event on our team
+    }
+    
   }
     
   

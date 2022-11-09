@@ -13,7 +13,10 @@
 
 <div class="row mt-5">
   <div style="min-height: 200px;">
-    <button #voteBtn class="btn btn-primary unclickable" style="max-width: 150px;" (mouseover)="onMouseOver(voteBtn)">Vote!</button>
+    <button #voteBtn class="btn btn-primary unclickable" style="max-width: 150px;" 
+      (mouseover)="onMouseOver(voteBtn)"
+      (mousemove)="onMouseOver(voteBtn)"
+      (click)="onMouseOver(voteBtn)">Vote!</button>
   </div>
   
 </div>
