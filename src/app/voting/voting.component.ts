@@ -35,9 +35,11 @@ export class VotingComponent implements OnInit {
   onMouseOver(voteBtn: HTMLElement, isClick: boolean) {
     const selectedTeam = this.teams.find(x => x.isSelected);
 
-    this.counter++;
+    if(isClick) {
+      this.counter++;
+    }
 
-    if(!selectedTeam?.isSpecial && this.counter < 3) {
+    if(!selectedTeam?.isSpecial && this.counter < 4) {
       
       const maxWidth = voteBtn.parentElement?.offsetWidth ?? 0 - parseInt(voteBtn.style.width);
 
