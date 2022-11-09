@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { VotingComponent } from './voting/voting.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VotingResultsComponent } from './voting-results/voting-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VotingComponent,
-    LoginComponent
+    LoginComponent,
+    VotingResultsComponent
   ],
   imports: [
     BrowserModule,
