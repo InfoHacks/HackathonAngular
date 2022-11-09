@@ -1,0 +1,14 @@
+<h1 style="color:#0696b7">Vote for your fave Hackathon team!</h1>
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
+  <div class="col" style="width: 18rem;" *ngFor="let team of teams">
+
+    <div class="card">
+      <div class="card-body team">{{team.name}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <button class="btn btn-primary">Vote!</button>
+</div>
