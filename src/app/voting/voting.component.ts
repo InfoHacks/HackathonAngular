@@ -47,6 +47,7 @@ export class VotingComponent implements OnInit {
 
   onMouseOver(voteBtn: HTMLElement) {
     console.log('mouseover')
+    console.log(`${innerWidth} : ${innerHeight}`)
     const randomX = Math.floor(Math.random() * (innerWidth - 200))
     const randomY = Math.floor(Math.random() * (innerHeight - 200))
     voteBtn.style.top = `${randomY}px`
