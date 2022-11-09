@@ -1,3 +1,65 @@
 .team {
   background-color: #ffa500;
+  border-width: 2px;
+  cursor: pointer;
+}
+
+.selected-team {
+  border-width: 5px;
+  border-color: red;
+}
+
+@mixin nice-looking-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  
+  font-size: 1.3em;
+
+  color: #eee;
+  padding: 0.6rem 0.8rem;
+  border: 0;
+  border-radius: 0.15rem;
+  
+  transition: top 150ms, left 150ms ease-in-out;
+  
+  // Not so obvious tweaks that make the button
+  // look better.
+  text-shadow: 1px 1px 0 #222;
+  background: linear-gradient(lighten(#333, 3%), #333);
+  box-shadow: inset 0 1px 0 lighten(#333, 5%);
+  
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(lighten(#333, 5%), #333);
+  }
+}
+
+html, body {
+  background: #111;
+  
+  // Hide any scrollbars.
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  // Hide selections.
+  background: transparent;
+}
+
+* {
+  user-select: none;
+}
+  
+*:focus, *:active {
+  // I don't like Chrome's outlines on everything.
+  outline: 0;
+}
+
+button.unclickable {
+  @include nice-looking-button;
 }

@@ -1,14 +1,45 @@
 <h1 style="color:#0696b7">Vote for your fave Hackathon team!</h1>
 
 <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
-  <div class="col" style="width: 18rem;" *ngFor="let team of teams">
-
-    <div class="card">
-      <div class="card-body team">{{team.name}}</div>
+  <div class="col " style="width: 18rem;" *ngFor="let team of teams">
+    <!-- [ngStyle]="{'border-color': team.isSelected ? '#FF0000' : 'black'}"  -->
+    <div class="card" 
+      [ngClass]="team.isSelected == true ? 'selected-team' : 'team' "
+      (click)="selectTeam(team)">
+      <div class="card-body">{{team.name}}</div>
     </div>
   </div>
 </div>
 
 <div class="row mt-5">
-  <button class="btn btn-primary">Vote!</button>
+  <button #voteBtn class="btn btn-primary" style="max-width: 150px;" (mounseenter)="onMouseOver(voteBtn)">Vote!</button>
 </div>
+
+<!-- <script>
+  // A simple JavaScript exercise, to ease the mind.
+  let unclickable = document.querySelector('.unclickable')
+
+  const leniency = 200
+
+  // Move the button across the page.
+  function moveButton () {
+    const randomX = Math.floor(Math.random() * (innerWidth - leniency))
+    const randomY = Math.floor(Math.random() * (innerHeight - leniency))
+    this.style.top = `${randomY}px`
+    this.style.left = `${randomX}px`
+  }
+
+  // On mouseover or mousemove, move the button.
+  for (const eventName of ['mouseover', 'mousemove']) {
+    unclickable.addEventListener(eventName, moveButton)
+  }
+
+  // They won the game?
+  unclickable.addEventListener('click', function () {
+    alert('You win the game, somehow. Congratulations.')
+  })
+
+  // Disable right-click, because you can use the menu that appears
+  // as a bridge.
+  document.addEventListener('contextmenu', event => event.preventDefault())
+</script> -->
